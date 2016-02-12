@@ -1,0 +1,2 @@
+# JavaExercises
+Java Exercises workspace
