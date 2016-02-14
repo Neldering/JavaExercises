@@ -10,7 +10,7 @@ public class CoinFlipSaved {
 		boolean gotHeads;
 		
 		File f = new File(saveFileName);
-		if ( f.exsists() && f.length() > 0 ) {
+		if ( f.exists() && f.length() > 0 ) {
 			Scanner input = new Scanner(f);
 				bestName = input.next();
 				best = input.nextInt();
@@ -25,7 +25,7 @@ public class CoinFlipSaved {
 		}
 		
 		do {
-			gotHeads Math.random() < 0.5;
+			gotHeads = Math.random() < 0.5;
 			
 			if ( gotHeads )
 				coin = "HEAD";
@@ -53,6 +53,10 @@ public class CoinFlipSaved {
 			System.out.print("Your name: ");
 			bestName = keyboard.next();
 			best = streak;
+			PrintWriter out = new PrintWriter(f);
+			out.println(bestName);
+			out.println(best);
+			out.close();
 		}
 		else if ( streak == best ) {
 			System.out.println("that ties the score. Cool.");
@@ -61,11 +65,6 @@ public class CoinFlipSaved {
 			System.out.print("You'll have to do better than");
 			System.out.print( streak + " if you want to beat the high score ");
 		}
-		
-		// Save this name and high score to the file
-		PrintWriter out = new PrintWriter(f);
-			out.println(bestName);
-			out.println(best);
-		out.close();
+
 	}
 }
