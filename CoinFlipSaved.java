@@ -3,7 +3,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class CoinFlipSaved {
-	public static void main( String[] args ){
+	public static void main( String[] args ) throws Exception {
 		Scanner keyboard = new Scanner(System.in);
 		String coin, again, bestName, saveFileName = "coin-flip-score.txt";
 		int streak = 0, best;
@@ -47,16 +47,18 @@ public class CoinFlipSaved {
 		} while ( again.equals("y") );
 		
 		System.out.println( "Final score: " + streak );
+		PrintWriter out = new PrintWriter(f);
 		
 		if ( streak > best ) {
 			System.out.println("That's a new high score!");
 			System.out.print("Your name: ");
 			bestName = keyboard.next();
 			best = streak;
-			PrintWriter out = new PrintWriter(f);
-				out.println(bestName);
-				out.println(best);
-			out.close();
+			out.println(bestName);
+			out.println(best);
+		out.close();
+			
+
 		}
 		else if ( streak == best ) {
 			System.out.println("that ties the score. Cool.");
@@ -65,6 +67,5 @@ public class CoinFlipSaved {
 			System.out.print("You'll have to do better than");
 			System.out.print( streak + " if you want to beat the high score ");
 		}
-
 	}
 }
