@@ -54,8 +54,8 @@ public class CoinFlipSaved {
 			bestName = keyboard.next();
 			best = streak;
 			PrintWriter out = new PrintWriter(f);
-			out.println(bestName);
-			out.println(best);
+				out.println(bestName);
+				out.println(best);
 			out.close();
 		}
 		else if ( streak == best ) {
