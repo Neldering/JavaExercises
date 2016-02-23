@@ -8,10 +8,11 @@ class candy {
 }
 public class VendingMachine {
 	public static void main ( String[] args ) {
-	Candy MilkyWay, Hersheys, ReesesCup, Take5;
+	candy MilkyWay, Hersheys, ReesesCup, Take5;
 	String choiceChar;
 	int choiceNum;
 	double cash = 0.00, change = 0.00;
+	boolean success = false;
 	
 	Scanner kb = new Scanner(System.in);
 	
@@ -39,7 +40,7 @@ public class VendingMachine {
 	Take5.number = 9;
 	Take5.price = 1.25;
    
-	Candy[] list = { MilkyWay, Hersheys, ReesesCup, Take5 };
+	candy[] list = { MilkyWay, Hersheys, ReesesCup, Take5 };
    
 	for ( candy c: list ) {
 		System.out.println("Brand: " + c.brand + "\nLocation: " + c.letter + c.number +"\n" + "Cost" + c.price + "\n");
@@ -61,13 +62,17 @@ public class VendingMachine {
 			if ( c.price <= cash ) {
 				change = cash - c.price;
 				System.out.println("Here is your " + c.brand );
-				System.out.println("Your change is : " + Change);
-				
+				System.out.println("Your change is : " + change);
+				success = true;
 			}
 			else
 				System.out.println("Insufficient Funds");
+		break;
 		}
 		else {
-		}	
+		}
+		
+		if ( success == false)
+			System.out.println("Selection not found.");
 	}
 }
